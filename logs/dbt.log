@@ -1,0 +1,108 @@
+[0m00:09:32.899860 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000238642EE510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000238642C3A10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023864291D50>]}
+
+
+============================== 00:09:32.903393 | e2df3442-1747-4019-83e9-f2b39c9a4106 ==============================
+[0m00:09:32.903393 [info ] [MainThread]: Running with dbt=1.11.2
+[0m00:09:32.905389 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\izouk\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'invocation_command': 'dbt init ecommerce_analytics', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m00:09:32.919603 [debug] [MainThread]: Starter project path: C:\Users\izouk\OneDrive\Desktop\snowflake-ecommerce-dbt\.venv311\Lib\site-packages\dbt\include\starter_project
+[0m00:09:32.934210 [info ] [MainThread]: 
+Your new dbt project "ecommerce_analytics" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m00:09:32.935233 [info ] [MainThread]: Setting up your profile.
+[0m00:09:36.546693 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m00:09:36.546693 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m00:09:36.546693 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m00:11:35.014515 [error] [MainThread]: Encountered an error:
+
+[0m00:11:35.016548 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\izouk\OneDrive\Desktop\snowflake-ecommerce-dbt\.venv311\Lib\site-packages\dbt\cli\requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\izouk\OneDrive\Desktop\snowflake-ecommerce-dbt\.venv311\Lib\site-packages\dbt\cli\requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\izouk\OneDrive\Desktop\snowflake-ecommerce-dbt\.venv311\Lib\site-packages\dbt\cli\main.py", line 483, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\izouk\OneDrive\Desktop\snowflake-ecommerce-dbt\.venv311\Lib\site-packages\dbt\task\init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "C:\Users\izouk\OneDrive\Desktop\snowflake-ecommerce-dbt\.venv311\Lib\site-packages\dbt\task\init.py", line 262, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "C:\Users\izouk\OneDrive\Desktop\snowflake-ecommerce-dbt\.venv311\Lib\site-packages\dbt\task\init.py", line 179, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "C:\Users\izouk\OneDrive\Desktop\snowflake-ecommerce-dbt\.venv311\Lib\site-packages\dbt\task\init.py", line 163, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\izouk\OneDrive\Desktop\snowflake-ecommerce-dbt\.venv311\Lib\site-packages\dbt\task\init.py", line 116, in generate_target_from_input
+    target = self.generate_target_from_input(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\izouk\OneDrive\Desktop\snowflake-ecommerce-dbt\.venv311\Lib\site-packages\dbt\task\init.py", line 129, in generate_target_from_input
+    target[key] = click.prompt(
+                  ^^^^^^^^^^^^^
+  File "C:\Users\izouk\OneDrive\Desktop\snowflake-ecommerce-dbt\.venv311\Lib\site-packages\click\termui.py", line 171, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\izouk\OneDrive\Desktop\snowflake-ecommerce-dbt\.venv311\Lib\site-packages\click\termui.py", line 154, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m00:11:35.020069 [debug] [MainThread]: Command `dbt init` failed at 00:11:35.020069 after 122.19 seconds
+[0m00:11:35.020069 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002385D5F5190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023866327710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002385D5F4E10>]}
+[0m00:11:35.020069 [debug] [MainThread]: Flushing usage events
+[0m00:11:36.928083 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m00:19:30.392663 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000246192D2190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000246192D2590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000246192D2390>]}
+
+
+============================== 00:19:30.397198 | 4d63855d-f45a-4200-95e7-ea2df8d0ea52 ==============================
+[0m00:19:30.397198 [info ] [MainThread]: Running with dbt=1.11.2
+[0m00:19:30.398204 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\izouk\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt init ecommerce_analytics', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m00:19:30.406793 [info ] [MainThread]: A project called ecommerce_analytics already exists here.
+[0m00:19:30.409041 [debug] [MainThread]: Command `dbt init` succeeded at 00:19:30.408028 after 0.07 seconds
+[0m00:19:30.409041 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002461906A450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000246125E5190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000246125E4E10>]}
+[0m00:19:30.409041 [debug] [MainThread]: Flushing usage events
+[0m00:19:32.248522 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m01:00:41.838679 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022030471F50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022030471E50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022030473B10>]}
+
+
+============================== 01:00:41.842692 | 0b851322-2163-4a42-89da-c873e938824d ==============================
+[0m01:00:41.842692 [info ] [MainThread]: Running with dbt=1.11.2
+[0m01:00:41.842692 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\izouk\\.dbt', 'invocation_command': 'dbt init ecommerce_analytics', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m01:00:41.855563 [debug] [MainThread]: Starter project path: C:\Users\izouk\OneDrive\Desktop\snowflake-ecommerce-dbt\.venv311\Lib\site-packages\dbt\include\starter_project
+[0m01:00:41.871035 [info ] [MainThread]: 
+Your new dbt project "ecommerce_analytics" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m01:00:41.872541 [info ] [MainThread]: Setting up your profile.
+[0m01:00:44.725401 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m01:00:44.725937 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m01:00:44.726472 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m01:03:06.470204 [info ] [MainThread]: Profile ecommerce_analytics written to C:\Users\izouk\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m01:03:06.472850 [debug] [MainThread]: Command `dbt init` succeeded at 01:03:06.472244 after 144.69 seconds
+[0m01:03:06.472850 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002203039A210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022029705150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022029704E10>]}
+[0m01:03:06.473885 [debug] [MainThread]: Flushing usage events
+[0m01:03:08.323958 [debug] [MainThread]: An error was encountered while trying to flush usage events
