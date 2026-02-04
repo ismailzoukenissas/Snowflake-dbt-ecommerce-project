@@ -5,6 +5,8 @@ Welcome to your new dbt project!
 Try running the following commands:
 - dbt run
 - dbt test
+ ##dbt Docs
+ -https://ismailzoukenissas.github.io/Snowflake-dbt-ecommerce-project/
 
 
 ### Resources:
