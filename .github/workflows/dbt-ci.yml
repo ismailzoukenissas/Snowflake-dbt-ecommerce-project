@@ -5,6 +5,11 @@ on:
     branches: ["main"]
   pull_request:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   dbt-run-test:
     runs-on: ubuntu-latest
@@ -62,8 +67,42 @@ jobs:
       - name: Generate dbt docs
         run: dbt docs generate
 
+      # 👉 Préparer un dossier “site” pour GitHub Pages
+      - name: Prepare dbt docs site
+        run: |
+          mkdir -p site
+          cp -v target/index.html site/
+          cp -v target/manifest.json site/
+          cp -v target/catalog.json site/
+
+      # ✅ Artifact (téléchargeable depuis Actions)
       - name: Upload dbt docs (artifact)
         uses: actions/upload-artifact@v4
         with:
           name: dbt-docs
-          path: ecommerce_analytics/target
+          path: ecommerce_analytics/site
+
+  deploy-docs:
+    needs: dbt-run-test
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+
+    steps:
+      - name: Download dbt docs artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dbt-docs
+          path: site
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
