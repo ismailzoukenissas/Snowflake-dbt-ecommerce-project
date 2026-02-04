@@ -32,10 +32,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   ecommerce_analytics:
     staging:
-      +schema: STAGING
+      +schema: RAW_STAGING
       +materialized: view
 
     marts:
-      +schema: MARTS
+      +schema: RAW_MARTS
       +materialized: table
+
 
